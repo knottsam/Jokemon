@@ -9,12 +9,13 @@ namespace Jokemon
     {
         public static int MapSize { get; set; }
 
-        public static char[,] tileArray = new char[MapSize, MapSize];
+        public static char[,] tileArray;
 
         public static char[,] ReadFile(string inFileName)
         {
             StreamReader sRead = new StreamReader(inFileName + ".txt");
             string line = "";
+            tileArray = new char[12, 12];
             int counter = 0;
 
             do
@@ -36,5 +37,6 @@ namespace Jokemon
             sRead.Close();
             return tileArray;
         }
+
     }
 }
