@@ -9,9 +9,11 @@ namespace Jokemon
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private float tileSize;
+        InteractableObject leftHouse, rightHouse, lab;
         Tile[,] tileArray;
         char[,] tileValuesArray;
-        Texture2D treeTexture, blankTexture;
+
+        Texture2D treeTexture, blankTexture, houseTexture, labTexture;
 
 
         public Game1()
@@ -39,7 +41,27 @@ namespace Jokemon
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             treeTexture = Content.Load<Texture2D>("Tree_Big");
             blankTexture = Content.Load<Texture2D>("Blank");
+            houseTexture = Content.Load<Texture2D>("house");
+            labTexture = Content.Load<Texture2D>("Lab");
+
             CreateMap();
+            leftHouse = new InteractableObject();
+            leftHouse.SpritePosition = new Vector2(64, 80);
+            leftHouse.SpriteTexture = houseTexture;
+            leftHouse.SpriteSize = new Vector2(96, 96);
+            leftHouse.SpriteColour = Color.White;
+
+            lab = new InteractableObject();
+            lab.SpritePosition = new Vector2(224, 200);
+            lab.SpriteTexture = labTexture;
+            lab.SpriteSize = new Vector2(96, 96);
+            lab.SpriteColour = Color.White;
+
+            rightHouse = new InteractableObject();
+            rightHouse.SpritePosition = new Vector2(236, 80);
+            rightHouse.SpriteTexture = houseTexture;
+            rightHouse.SpriteSize = new Vector2(96, 96);
+            rightHouse.SpriteColour = Color.White;
             // TODO: use this.Content to load your game content here
         }
 
@@ -94,6 +116,11 @@ namespace Jokemon
             {
                 aTile.Draw(_spriteBatch);
             }
+
+            leftHouse.Draw(_spriteBatch);
+            rightHouse.Draw(_spriteBatch);
+            lab.Draw(_spriteBatch);
+
             _spriteBatch.End();
 
             base.Draw(gameTime);

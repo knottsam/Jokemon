@@ -19,7 +19,9 @@ namespace Jokemon
 
         public void Draw(SpriteBatch inSpriteBatch)
         {
-            inSpriteBatch.Draw(SpriteTexture, SpritePosition, null, SpriteColour);
+            inSpriteBatch.Draw(SpriteTexture, 
+                new Rectangle((int)SpritePosition.X, (int)SpritePosition.Y, (int)SpriteSize.X, (int)SpriteSize.Y), 
+                null, SpriteColour);
         }
     }
 }
