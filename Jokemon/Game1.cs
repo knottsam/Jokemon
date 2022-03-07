@@ -8,12 +8,18 @@ namespace Jokemon
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        private float tileSize;
+        Tile[,] tileArray;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            _graphics.PreferredBackBufferWidth = 900;
+            _graphics.PreferredBackBufferHeight = 900;
+            tileSize = _graphics.PreferredBackBufferWidth / 12;
+            MapReader.MapSize = _graphics.PreferredBackBufferHeight;
         }
 
         protected override void Initialize()
@@ -32,7 +38,7 @@ namespace Jokemon
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
@@ -42,9 +48,13 @@ namespace Jokemon
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.LightGreen);
 
             // TODO: Add your drawing code here
+
+            _spriteBatch.Begin();
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
