@@ -13,7 +13,8 @@ namespace Jokemon
         { 
         }
 
-        public ReadableObject(Texture2D inTexture, Vector2 inPosition, Vector2 inSize, Color inColour)
+        public ReadableObject(Texture2D inTexture, Vector2 inPosition, Vector2 inSize, Color inColour) 
+            : base(inTexture, inPosition, inSize, inColour)
         { 
         }
     }

@@ -12,6 +12,11 @@ namespace Jokemon
         { 
         }
 
+        public Tile(Texture2D inTexture, Vector2 inPosition, Vector2 inSize, Color inColour)
+            : base(inTexture, inPosition, inSize, inColour)
+        {
+        }
+
         /// <summary>
         /// Allows us to get the position of the object if necessary
         /// </summary>

@@ -24,7 +24,7 @@ namespace Jokemon
 
                 for (int i = 0; i < line.Length; i++)
                 {
-                    tileArray[counter, i] = line[i];
+                    tileArray[i, counter] = line[i];
                 }
 
                 if (counter < line.Length - 1)

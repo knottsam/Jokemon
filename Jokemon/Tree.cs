@@ -9,9 +9,13 @@ namespace Jokemon
 {
     class Tree : Sprite
     {
-        public Tree()
-        { 
-            
+        public Tree() : base()
+        {
+        }
+
+        public Tree(Texture2D inTexture, Vector2 inPosition, Vector2 inSize, Color inColour)
+            : base(inTexture, inPosition, inSize, inColour)
+        {
         }
     }
 }
