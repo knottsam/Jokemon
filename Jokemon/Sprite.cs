@@ -15,7 +15,16 @@ namespace Jokemon
         public Color SpriteColour { get; set; }
 
         public Sprite()
-        { }
+        { 
+        }
+
+        public Sprite(Texture2D inTexture, Vector2 inPosition, Vector2 inSize, Color inColour)
+        {
+            SpriteTexture = inTexture;
+            SpritePosition = inPosition;
+            SpriteSize = inSize;
+            SpriteColour = inColour;
+        }
 
         public void Draw(SpriteBatch inSpriteBatch)
         {

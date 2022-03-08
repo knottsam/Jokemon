@@ -9,7 +9,8 @@ namespace Jokemon
         /// Empty constructor - just in case! :)
         /// </summary>
         public Tile()
-        { }
+        { 
+        }
 
         /// <summary>
         /// Allows us to get the position of the object if necessary

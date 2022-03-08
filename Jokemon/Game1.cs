@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Jokemon
 {
@@ -9,11 +10,12 @@ namespace Jokemon
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private float tileSize;
-        InteractableObject leftHouse, rightHouse, lab;
-        Tile[,] tileArray;
-        char[,] tileValuesArray;
+        private Building leftHouse, rightHouse, lab;
+        private List<ReadableObject> readableObjectList;
+        private Tile[,] tileArray;
+        private char[,] tileValuesArray;
 
-        Texture2D treeTexture, blankTexture, houseTexture, labTexture;
+        Texture2D treeTexture, blankTexture, houseTexture, labTexture, signBig, signSmall, postBox, flower, playerM, playerF;
 
 
         public Game1()
@@ -32,6 +34,7 @@ namespace Jokemon
             // TODO: Add your initialization logic here
             tileArray = new Tile[MapReader.MapSize, MapReader.MapSize];
             tileValuesArray = MapReader.ReadFile(@"C:\Users\sknott\source\repos\Jokemon\Jokemon\Content\TileMap");
+            readableObjectList = new List<ReadableObject>();
 
             base.Initialize();
         }
@@ -39,30 +42,20 @@ namespace Jokemon
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+
+            // TODO: use this.Content to load your game content here
             treeTexture = Content.Load<Texture2D>("Tree_Big");
             blankTexture = Content.Load<Texture2D>("Blank");
             houseTexture = Content.Load<Texture2D>("house");
             labTexture = Content.Load<Texture2D>("Lab");
+            signBig = Content.Load<Texture2D>("Sign_Big");
+            signSmall = Content.Load<Texture2D>("Sign_Little");
 
             CreateMap();
-            leftHouse = new InteractableObject();
-            leftHouse.SpritePosition = new Vector2(64, 80);
-            leftHouse.SpriteTexture = houseTexture;
-            leftHouse.SpriteSize = new Vector2(96, 96);
-            leftHouse.SpriteColour = Color.White;
-
-            lab = new InteractableObject();
-            lab.SpritePosition = new Vector2(224, 200);
-            lab.SpriteTexture = labTexture;
-            lab.SpriteSize = new Vector2(96, 96);
-            lab.SpriteColour = Color.White;
-
-            rightHouse = new InteractableObject();
-            rightHouse.SpritePosition = new Vector2(236, 80);
-            rightHouse.SpriteTexture = houseTexture;
-            rightHouse.SpriteSize = new Vector2(96, 96);
-            rightHouse.SpriteColour = Color.White;
-            // TODO: use this.Content to load your game content here
+            leftHouse = new Building(houseTexture, new Vector2(80, 64), new Vector2(80, 64), Color.White);
+            lab = new Building(labTexture, new Vector2(212, 192), new Vector2(108, 64), Color.White);
+            rightHouse = new Building(houseTexture, new Vector2(224, 64), new Vector2(80, 64), Color.White);
         }
 
         public void CreateMap()
