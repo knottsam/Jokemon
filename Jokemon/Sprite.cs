@@ -32,5 +32,19 @@ namespace Jokemon
                 new Rectangle((int)SpritePosition.X, (int)SpritePosition.Y, (int)SpriteSize.X, (int)SpriteSize.Y), 
                 null, SpriteColour);
         }
+
+        public bool CheckCollided(Sprite inSprite)
+        {
+            Rectangle boundingBox = new Rectangle((int)inSprite.SpritePosition.X, (int)inSprite.SpritePosition.Y, (int)inSprite.SpriteSize.X, (int)inSprite.SpriteSize.Y);
+
+            if (boundingBox.Intersects(new Rectangle((int)SpritePosition.X, (int)SpritePosition.Y, (int)SpriteSize.X, (int)SpriteSize.Y)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

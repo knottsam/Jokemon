@@ -113,6 +113,10 @@ namespace Jokemon
                 Exit();
 
             // TODO: Add your update logic here
+            if (leftHouse.CheckCollided(rightHouse))
+            { 
+                //Do stuff.
+            }
 
             base.Update(gameTime);
         }
