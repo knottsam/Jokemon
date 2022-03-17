@@ -28,6 +28,8 @@ namespace Jokemon
             MapReader.MapSize = 12;
         }
 
+        //This is a test comment
+
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
