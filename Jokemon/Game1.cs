@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace Jokemon
 { // this is a comment
@@ -116,7 +117,7 @@ namespace Jokemon
             // TODO: Add your update logic here
             if (leftHouse.CheckCollided(rightHouse))
             {
-                //Do stuff.
+                Debug.WriteLine("Crashed!");
             }
 
             base.Update(gameTime);
