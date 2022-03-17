@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using System.Collections.Generic;
 
 namespace Jokemon
-{
+{//##
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
@@ -55,7 +54,7 @@ namespace Jokemon
             logTexture = Content.Load<Texture2D>("Logs");//20x12
             flower = Content.Load<Texture2D>("Flower_Red");//14x10
 
-            
+
 
             leftHouse = new Building(houseTexture, new Vector2(80, 64), new Vector2(80, 64), Color.White);
             lab = new Building(labTexture, new Vector2(212, 192), new Vector2(108, 64), Color.White);
@@ -63,8 +62,8 @@ namespace Jokemon
 
             //Read in the file and create a tile map from it for the background & objects
             CreateMap();
-                        
-            
+
+
         }
 
         public void CreateMap()
@@ -116,7 +115,7 @@ namespace Jokemon
 
             // TODO: Add your update logic here
             if (leftHouse.CheckCollided(rightHouse))
-            { 
+            {
                 //Do stuff.
             }
 
@@ -130,7 +129,7 @@ namespace Jokemon
             // TODO: Add your drawing code here
 
             _spriteBatch.Begin();
-            foreach(Tile aTile in tileArray)
+            foreach (Tile aTile in tileArray)
             {
                 aTile.Draw(_spriteBatch);
             }
